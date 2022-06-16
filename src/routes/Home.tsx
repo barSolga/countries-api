@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import Controls from "../components/Controls";
 import Countries from "../components/Countries";
 
 const Home = () => {
@@ -28,7 +29,10 @@ const Home = () => {
   } else {
     return (
       <Container>
-        <Countries countries={countries} />
+        <Controls/>
+        <Wrapper>
+          <Countries countries={countries} />
+        </Wrapper>
         {/* {countries?.length > 0 ?  : 'No Countries to show' } */}
       </Container>
     );
@@ -37,11 +41,17 @@ const Home = () => {
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+`
+
+const Wrapper = styled.div`
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 100%;
-  min-height: 100vh;
 `
 
 export default Home
