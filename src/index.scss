@@ -1,0 +1,51 @@
+:root {
+    
+    // COLORS
+    --very-dark-blue: hsl(207, 26%, 17%); // Dark Mode Background
+    --very-light-gray: hsl(0, 0%, 98%); // Light Mode Background
+    --dark-blue: hsl(209, 23%, 22%); //Dark Mode Elements
+    --very-dark-blue : hsl(200, 15%, 8%); // Light Mode Text
+    --dark-gray: hsl(0, 0%, 52%); // Light Mode Input
+    --white: hsl(0, 0%, 100%); //Dark Mode Text & Light Mode Elements
+    --shadow: 0 5px 20px #00000010; // Box-shadow
+
+
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+// ### Body Copy
+
+// - Homepage Items: 14px
+// - Detail Page: 16px 
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+body.light {
+    background-color: var(--very-light-gray);
+    color: var(--very-dark-blue);
+    a, button, li {
+        color: var(--very-dark-blue);
+    }
+}
+
+body.dark {
+    background-color: var(--very-dark-blue);
+    color: var(--white);
+    a, button, li {
+        color: var(--white);
+    }
+}
