@@ -3,7 +3,9 @@ import styled from 'styled-components';
 const Navbar = () => {
   return (
     <Nav>
-        <h1>Where in the world?</h1>
+        <a href="/" style={{ textDecoration:'none' }}>
+            <Heading>Where in the world?</Heading>
+        </a>
         <Btn>
             <i className='bx bx-moon'></i>
             &nbsp;
@@ -18,7 +20,7 @@ const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2em;
+    padding: 2em 3em;
     background-color: var(--white);
     box-shadow: var(--shadow);
 `;
@@ -35,5 +37,9 @@ const Btn = styled.button`
         transform: scale(1.1);
     }
 `;
+
+const Heading = styled.h1`
+    font-size: 2.5rem;
+`
 
 export default Navbar

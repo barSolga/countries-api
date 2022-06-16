@@ -7,33 +7,38 @@ const Home = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [countries, setCountries] = useState([]);
+  const [region, setRegion] = useState('all');
+  const [name, setName] = useState('')
+  let apiUrl: string = name === '' ? `${region}` : `name/${name}`;
 
   useEffect(() => {
-    fetch('https://restcountries.com/v3.1/all')
-    .then(res => res.json())
-    .then(result => {
-      setIsLoaded(true);
-      setCountries(result);
-    },
-    (error) => {
-      setIsLoaded(true);
-      setError(error);
-    }
-  )
-  }, []);
+    fetch('https://restcountries.com/v3.1/' + apiUrl)
+      .then(res => res.json())
+      .then(result => {
+          setIsLoaded(true);
+          setCountries(result);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      )
+  }, [apiUrl])
 
   if (error) {
-    return <div>Couldn`t load countries list</div>;
+    return <ErrorMsg>Couldn`t load countries list</ErrorMsg>;
   } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <ErrorMsg>Loading...</ErrorMsg>;
   } else {
     return (
       <Container>
-        <Controls/>
+        <Controls setRegion={setRegion} setName={setName} />
         <Wrapper>
-          <Countries countries={countries} />
+          {
+            countries.length !== undefined ? <Countries countries={countries} /> : <ErrorMsg>No results</ErrorMsg>
+          }
+          
         </Wrapper>
-        {/* {countries?.length > 0 ?  : 'No Countries to show' } */}
       </Container>
     );
   }
@@ -43,15 +48,21 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
   min-height: 100vh;
 `
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
+  max-width: 1440px;
+`
+
+const ErrorMsg = styled.p`
+  text-align: center;
+  font-size: 3rem;
+  padding: 3em 0;
 `
 
 export default Home

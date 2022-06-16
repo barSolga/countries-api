@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Country = ( { countryData }:any ) => {
 
   return (
-    <CountryBox>
+    <CountryBox href={'/country/'+countryData.ccn3}>
         <Img src={countryData.flags.png} alt={countryData.name.common + " flag"} />
         <InfoBox>
           <Name>{countryData.name.common}</Name>
@@ -16,13 +16,14 @@ const Country = ( { countryData }:any ) => {
 }
 
 // ======= styled components ======= 
-const CountryBox = styled.div`
+const CountryBox = styled.a`
   max-width: 350px;
   margin: 2em;
   border-radius: 8px;
   box-shadow: var(--shadow);
   background-color: var(--white);
   overflow: hidden;
+  text-decoration: none;
 `;
 
 const Img = styled.img`
