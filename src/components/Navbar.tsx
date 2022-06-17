@@ -20,9 +20,12 @@ const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2em 3em;
+    padding: 2em;
     background-color: var(--white);
     box-shadow: var(--shadow);
+    @media screen and (min-width: 768px) {
+        padding: 2em 3em;
+    }
 `;
 
 const Btn = styled.button`
@@ -39,7 +42,9 @@ const Btn = styled.button`
 `;
 
 const Heading = styled.h1`
-    font-size: 2.5rem;
+    @media screen and (min-width: 768px) {
+        font-size: 2.5rem;
+    }
 `
 
 export default Navbar
