@@ -30,7 +30,7 @@ const Img = styled.img`
   width: 100%;
   height: 180px;
   @media (min-width: 310px) {
-    width: 300px;
+    width: 320px;
     height: 180px;
   }
 `;

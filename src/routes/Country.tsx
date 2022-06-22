@@ -112,7 +112,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   max-width: 1440px;
   @media screen and (min-width: 768px){
@@ -123,10 +123,10 @@ const Wrapper = styled.div`
 const Img = styled.img`
   width: 100%;
   max-height: 400px;
+  object-fit: cover;
   @media screen and (min-width: 768px){
     padding-right: 5em;
     width: 50%;
-    max-height: 400px;
   }
 `
 
@@ -141,6 +141,9 @@ const Content = styled.div`
   @media screen and (min-width: 768px){
     justify-content: space-evenly;
     width: 50%;
+    .heading {
+      padding: 0 0 .5em 0;
+    }
   }
 `
 
