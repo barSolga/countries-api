@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Link = ({ text, href }) => {
+const Link = ({ text, href }:any) => {
   return (
     <A href={href}>
         {text == 'Back' ? <i className='bx bx-arrow-back'></i>: ''}
@@ -14,10 +14,9 @@ const A = styled.a`
     display: flex;
     align-items: center;
     padding: .6em 2em;
-    margin: 2em 0;
     text-align: center;
     background-color: var(--white);
-    box-shadow: var(--shadow);
+    box-shadow: 0 0 5px #00000035;
     font-size: 1.6rem;
     text-decoration: none;
     transition: background-color .3s, color .3s;

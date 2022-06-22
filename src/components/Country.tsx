@@ -3,11 +3,11 @@ import styled from "styled-components";
 const Country = ( { countryData }:any ) => {
 
   return (
-    <CountryBox href={'/country/'+countryData.ccn3}>
+    <CountryBox href={'/country/'+countryData.cca2.toLowerCase()}>
         <Img src={countryData.flags.png} alt={countryData.name.common + " flag"} />
         <InfoBox>
           <Name>{countryData.name.common}</Name>
-          <Info><b>Population:</b> {countryData.population}</Info>
+          <Info><b>Population:</b> {countryData.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Info>
           <Info><b>Region:</b> {countryData.region}</Info>
           <Info><b>Capital:</b> {countryData.capital ? countryData.capital : 'none'}</Info>
         </InfoBox>
